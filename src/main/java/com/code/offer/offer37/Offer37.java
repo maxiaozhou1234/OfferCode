@@ -2,21 +2,28 @@ package com.code.offer.offer37;
 
 import com.code.offer.Utils;
 
+import java.util.Arrays;
+
 public class Offer37 {
 
     /*
-    * 两个链表的第一个公共节点
-    * */
+     * 两个链表的第一个公共节点
+     * */
     public static void main(String[] args) {
+
+        Offer37 test = new Offer37();
+
+        test.createNode(new int[]{1, 2, 3, 4}, new int[]{4});
+        test.createNode(new int[]{1, 2, 3, 4}, new int[]{7});
 
         int[] value1 = {3, 5, 4, 77, 8, 2, 4, 1, 9, 0, 56, 34};
         int[] value2 = {77, 8, 2, 4, 1, 9, 0, 56, 34};
-        Offer37 test = new Offer37();
-        test.test(value1, value2);
+        test.createNode(value1, value2);
+
 
     }
 
-    private void test(int[] value1, int[] value2) {
+    private void createNode(int[] value1, int[] value2) {
         if (value1 == null || value1.length == 0) {
             System.out.println("error empty array1");
             return;
@@ -25,6 +32,9 @@ public class Offer37 {
             System.out.println("error empty array2");
             return;
         }
+
+        System.out.println("input array1 >> " + Arrays.toString(value1));
+        System.out.println("input array2 >> " + Arrays.toString(value2));
 
         Node a = new Node(value1[0]);
         Node tmp = a;
@@ -73,7 +83,7 @@ public class Offer37 {
             nodeShort = nodeShort.next;
         }
         if (nodeLong != null) {
-            System.out.println(" |-- fount common:" + nodeLong.value);
+            System.out.println(" |-- found common:" + nodeLong.value);
         } else {
             System.out.println(" |-- without common node");
         }
