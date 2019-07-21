@@ -19,8 +19,8 @@ public class Offer39 {
         test.printTree(root);
         System.out.println();
 
-        int depth = test.getTreeDepth(root);
         Utils.initTime();
+        int depth = test.getTreeDepth(root);
         System.out.println(" |-- out >> depth:" + depth);
         Utils.timeConsuming();
     }
