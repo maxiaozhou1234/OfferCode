@@ -1,5 +1,7 @@
 package com.code.offer;
 
+import com.code.offer.bean.Node;
+
 import java.util.Arrays;
 
 public class Utils {
@@ -21,6 +23,26 @@ public class Utils {
             return false;
         }
         return true;
+    }
+
+    public static Node createTree() {
+        //4 6 8 10 12 14 16
+        Node node = new Node(10);
+
+        Node left, right;
+
+        left = new Node(6);
+        left.left = new Node(4);
+        left.right = new Node(8);
+
+        right = new Node(14);
+        right.left = new Node(12);
+        right.right = new Node(16);
+
+        node.left = left;
+        node.right = right;
+
+        return node;
     }
 
 }
