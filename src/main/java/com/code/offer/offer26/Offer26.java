@@ -1,5 +1,7 @@
 package com.code.offer.offer26;
 
+import java.util.HashMap;
+
 public class Offer26 {
 
     /*
@@ -13,6 +15,12 @@ public class Offer26 {
         ComplexNode node = test.createList();
 
         test.copy(node);
+
+        System.out.println("\ncopy2");
+        ComplexNode copy = test.copy2(node);
+        test.print(node);
+        System.out.println("=======");
+        test.print(copy);
     }
 
     private void copy(ComplexNode node) {
@@ -91,6 +99,34 @@ public class Offer26 {
             n = n.next;
         }
         System.out.println(" |-- output >> " + sb.toString());
+    }
+
+    private ComplexNode copy2(ComplexNode node) {
+        if (node == null) {
+            return null;
+        }
+
+        HashMap<ComplexNode, ComplexNode> map = new HashMap<>();
+        ComplexNode n = node;
+        ComplexNode copy;
+        while (n != null) {
+            copy = new ComplexNode(n.value);
+            map.put(n, copy);
+            n = n.next;
+        }
+
+        n = node;
+        while (n != null) {
+            ComplexNode nn = map.get(n);
+            if (n.next != null) {
+                nn.next = map.get(n.next);
+            }
+            if (n.sibling != null) {
+                nn.sibling = map.get(n.sibling);
+            }
+            n = n.next;
+        }
+        return map.get(node);
     }
 
 
