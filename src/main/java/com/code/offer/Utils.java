@@ -1,6 +1,7 @@
 package com.code.offer;
 
 import com.code.offer.bean.Node;
+import com.code.offer.bean.SingleNode;
 
 import java.util.Arrays;
 
@@ -43,6 +44,50 @@ public class Utils {
         node.right = right;
 
         return node;
+    }
+
+    public static SingleNode createSingleNode(int count) {
+        SingleNode head = new SingleNode(1);
+
+        SingleNode node = head;
+        for (int i = 2; i < count + 1; i++) {
+            node.next = new SingleNode(i);
+            node = node.next;
+        }
+
+        return head;
+    }
+
+    public static SingleNode createSingleNodeByArray(int[] array) {
+        if (array == null || array.length == 0)
+            throw new NullPointerException("array is null or empty");
+
+        SingleNode head = new SingleNode(array[0]);
+
+        SingleNode node = head;
+        for (int i = 1; i < array.length; i++) {
+            node.next = new SingleNode(array[i]);
+            node = node.next;
+        }
+
+        return head;
+    }
+
+    public static void printSingleNode(SingleNode node) {
+        if (node == null) {
+            System.out.println(" |-- output SingleNode is null");
+            return;
+        }
+        SingleNode n = node;
+        StringBuilder sb = new StringBuilder();
+        while (n != null) {
+            sb.append(n.value).append(",");
+            n = n.next;
+        }
+        if (sb.length() > 0) {
+            sb.delete(sb.length() - 1, sb.length());
+        }
+        System.out.println(" |-- print >> " + sb.toString());
     }
 
 }

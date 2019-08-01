@@ -9,6 +9,9 @@ public class Offer5 {
 
     /*
      * 从尾到头打印链表
+     *
+     * 1. 使用栈，但如果数据量太大会oom
+     * 2. 使用递归，同样数据量太大会溢出
      */
     public static void main(String[] args) {
         Offer5 test = new Offer5();
